@@ -22,16 +22,18 @@ const allowedOrigins = [
   "https://bg-survey-yv9o-2qxp7epct-halords-projects.vercel.app"
 ];
 
-app.use(cors({
-  origin: allowedOrigins,
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
-}));
+};
 
-// ✅ Handle preflight requests globally
-app.options("*", cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
