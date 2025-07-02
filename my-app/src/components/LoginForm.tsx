@@ -32,6 +32,7 @@ export default function LoginForm() {
       const response = await fetch('https://bg-survey.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify(user),
       });
 
