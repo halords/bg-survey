@@ -5,11 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typeorm": "ts-node ./node_modules/typeorm/cli",
-    "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts",
-    "migration:generate": "npm run typeorm -- migration:generate src/migration/InitialSchema -d src/data-source.ts",
     "build": "tsc",
-    "start": "ts-node server.ts"
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
