@@ -25,7 +25,7 @@ const createSurvey = async (req, res) => {
         const newReferences = [];
         for (const ref of references) {
             const token = (0, uuid_1.v4)();
-            const link = `http://localhost:5173/survey/${token}`;
+            const link = `https://bg-survey-yv9o.vercel.app/survey/${token}`;
             // console.log(link);
             const [refinsert] = await db.execute('INSERT INTO survey_references (survey_id, full_name, email, token, link) VALUES (?, ?, ?, ?, ?)', [surveyId, ref.fullName, ref.email, token, link]);
             const refID = refinsert.insertId;

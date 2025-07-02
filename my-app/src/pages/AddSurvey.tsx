@@ -270,7 +270,7 @@ export default function AddSurvey() {
                         fullName: e.target.value
                       })}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      required
+                      
                     />
                   </div>
 
@@ -286,7 +286,7 @@ export default function AddSurvey() {
                         email: e.target.value
                       })}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      required
+                      
                     />
                   </div>
 
