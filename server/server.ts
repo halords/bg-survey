@@ -19,6 +19,7 @@ const app = express();
 // ✅ Always start with CORS
 const allowedOrigins = [
   "http://localhost:5170",
+  "https://bg-survey-yv9o.vercel.app",
   "https://bg-survey-yv9o-2qxp7epct-halords-projects.vercel.app"
 ];
 
@@ -30,10 +31,17 @@ const corsOptions: cors.CorsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Handle preflight for all routes
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  next();
+});
 
 app.use(bodyParser.json());
 
