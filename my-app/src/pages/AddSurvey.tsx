@@ -1,5 +1,5 @@
 // src/pages/AddSurvey.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { FiCopy, FiCheckCircle, FiExternalLink } from 'react-icons/fi';
@@ -129,6 +129,16 @@ export default function AddSurvey() {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+  if (isEmailed) {
+    const timer = setTimeout(() => {
+      navigate('/dashboard');
+    }, 2000); // 2000 milliseconds = 2 seconds
+    
+    return () => clearTimeout(timer); // Clean up the timer
+  }
+}, [isEmailed, navigate]);
   
   if (isEmailed) {
     return (
