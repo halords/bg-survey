@@ -29,7 +29,7 @@ export default function LoginForm() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://10.10.7.106:3001/login', {
+      const response = await fetch('https://bg-survey.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),

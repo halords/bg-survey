@@ -16,12 +16,21 @@ dotenv.config();
 const app = express();
 
 // Middleware
+// ✅ Always start with CORS
+const allowedOrigins = [
+  "http://localhost:5170",
+  "https://bg-survey-yv9o-2qxp7epct-halords-projects.vercel.app"
+];
+
 app.use(cors({
-  origin: [
-    "http://localhost:5170",                 // Local dev
-    "https://bg-survey-yv9o-2qxp7epct-halords-projects.vercel.app"       // Production
-  ],
-  credentials: true,  // Enable cookies/auth headers
+  origin: allowedOrigins,
+  credentials: true
+}));
+
+// ✅ Handle preflight requests globally
+app.options("*", cors({
+  origin: allowedOrigins,
+  credentials: true
 }));
 
 app.use(bodyParser.json());
