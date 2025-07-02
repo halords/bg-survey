@@ -18,7 +18,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: [
-    "http://localhost:3000",                 // Local dev
+    "http://localhost:5170",                 // Local dev
     "https://bg-survey-yv9o-2qxp7epct-halords-projects.vercel.app"       // Production
   ],
   credentials: true,  // Enable cookies/auth headers
@@ -53,6 +53,6 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
 });
 
 const PORT = Number(process.env.PORT) || 3001;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
