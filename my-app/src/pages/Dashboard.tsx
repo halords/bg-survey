@@ -17,12 +17,13 @@ export default function Dashboard() {
     const fetchEmployees = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://10.10.7.106:3001/employees', {
+        const response = await fetch('https://bg-survey.onrender.com/employees', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
+          credentials: 'include',
         });
         const data = await response.json();
         setEmployees(data);

@@ -16,11 +16,12 @@ export default function ConfigureSurvey() {
       if (!token) return;
 
       try {
-        const response = await fetch('http://10.10.7.106:3001/questions', {
+        const response = await fetch('https://bg-survey.onrender.com/questions', {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
+          credentials: 'include',
         });
 
         const data = await response.json();
@@ -46,12 +47,13 @@ export default function ConfigureSurvey() {
     const token = localStorage.getItem('token');
     if (!token) return;
 
-    const response = await fetch('http://10.10.7.106:3001/questions/delete', {
+    const response = await fetch('https://bg-survey.onrender.com/questions/delete', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify({id})
     });
     if(response.ok){
@@ -86,12 +88,13 @@ export default function ConfigureSurvey() {
       // console.log(sorted);
       // return;
 
-      const response = await fetch('http://10.10.7.106:3001/questions/submit', {
+      const response = await fetch('https://bg-survey.onrender.com/questions/submit', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({sorted}),
       });
 

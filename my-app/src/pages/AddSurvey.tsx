@@ -35,7 +35,7 @@ export default function AddSurvey() {
         id: Date.now().toString(),
         fullName: newReference.fullName,
         email: newReference.email,
-        link: `http://10.10.7.106:5173/survey/${token}`
+        link: `https://bg-survey-yv9o.vercel.app/survey/${token}`
       }
     ]);
     setNewReference({ fullName: '', email: '' });
@@ -62,12 +62,13 @@ export default function AddSurvey() {
       // console.log('Submitting survey:', surveyData);
     const accessToken = localStorage.getItem('token');
       // Simulate API call
-    const response = await fetch('http://10.10.7.106:3001/surveys', {
+    const response = await fetch('https://bg-survey.onrender.com/surveys', {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify(surveyData)
     });
     if (!response.ok) {
@@ -102,12 +103,13 @@ export default function AddSurvey() {
       
     const accessToken = localStorage.getItem('token');
       // Simulate API call
-    const response = await fetch('http://10.10.7.106:3001/surveys/sendmail', {
+    const response = await fetch('https://bg-survey.onrender.com/surveys/sendmail', {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify({references})
     });
     if (!response.ok) {

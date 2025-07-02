@@ -23,7 +23,13 @@ export default function SurveyPage() {
   useEffect(() => {
     const fetchSurveyDetails = async () => {
       try {
-        const response = await fetch(`http://10.10.7.106:3001/survey/${token}`);
+        const response = await fetch(`https://bg-survey.onrender.com/survey/${token}`, {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include'
+        });
         const data = await response.json();
 
         if (data.success) {
@@ -73,7 +79,7 @@ export default function SurveyPage() {
     //     token: token
     // };
     // console.log(responses);
-    const response = await fetch('http://10.10.7.106:3001/submit-survey', {
+    const response = await fetch('https://bg-survey.onrender.com/submit-survey', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -84,7 +90,8 @@ export default function SurveyPage() {
         respondentName,
         comments,
         token
-      })
+      }),
+      credentials: 'include',
     });
     if (response.ok) {
       setIsSubmitted(true);
