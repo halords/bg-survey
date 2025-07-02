@@ -16,7 +16,14 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",                 // Local dev
+    "https://your-frontend.vercel.app"       // Production
+  ],
+  credentials: true,  // Enable cookies/auth headers
+}));
+
 app.use(bodyParser.json());
 
 // Inject db into app context

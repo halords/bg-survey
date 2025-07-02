@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node server.ts",
-    "build": "tsc"
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts",
+    "migration:generate": "npm run typeorm -- migration:generate src/migration/InitialSchema -d src/data-source.ts",
+    "build": "tsc",
+    "start": "ts-node server.ts"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +19,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^24.0.3",
+    "@types/node": "^24.0.8",
     "@types/nodemailer": "^6.4.17",
     "@types/uuid": "^10.0.0",
     "ts-node": "^10.9.2",
@@ -34,6 +37,9 @@
     "mysql2": "^3.14.1",
     "nodemailer": "^7.0.4",
     "path": "^0.12.7",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.25",
+    "typeorm-ts-node-commonjs": "^0.3.20",
     "url": "^0.11.4",
     "uuid": "^11.1.0"
   }

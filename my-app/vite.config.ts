@@ -13,6 +13,7 @@ export default defineConfig({
         comments: false, // remove comments
       },
     },
+    outDir: 'dist',
   },
   server: {
     host: '0.0.0.0',      // 👈 Allow access via IP
