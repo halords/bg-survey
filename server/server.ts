@@ -38,14 +38,14 @@ app.use('/submit-survey', submitSurvey); // Add this line
 app.use('/questions', questions); // Add this line
 
 // Serve static files from React dist folder - ONLY IN PRODUCTION
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '..', 'my-app', 'dist')));
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, '..', 'my-app', 'dist')));
 
-  // Catch-all for SPA (must come last!)
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', 'my-app', 'dist', 'index.html'));
-  });
-}
+//   // Catch-all for SPA (must come last!)
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, '..', 'my-app', 'dist', 'index.html'));
+//   });
+// }
 // Error handling middleware
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
