@@ -19,7 +19,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",                 // Local dev
-    "https://your-frontend.vercel.app"       // Production
+    "https://bg-survey-yv9o-2qxp7epct-halords-projects.vercel.app"       // Production
   ],
   credentials: true,  // Enable cookies/auth headers
 }));
