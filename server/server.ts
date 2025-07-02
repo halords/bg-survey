@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import path from 'path';
-import db from './config/db';
+import pool from './config/db';
 import authRoutes from './routes/auth.routes';
 import surveyRoutes from './routes/survey.routes';
 import employeeRoutes from './routes/employee.routes';
@@ -27,7 +27,7 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // Inject db into app context
-app.set('db', db);
+app.set('db', pool);
 
 // Routes
 app.use('/', authRoutes); // Mount auth routes
