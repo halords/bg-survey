@@ -73,7 +73,7 @@ A full-stack web application designed to streamline the process of collecting ch
 2. Configure environment variables
    Create .env file in the root/server
    ```
-   PORT=4000
+   PORT=3001
    JWT_SECRET=your_jwt_secret
    SMTP_HOST=smtp.yourprovider.com
    SMTP_PORT=587
@@ -101,15 +101,22 @@ A full-stack web application designed to streamline the process of collecting ch
 
 ### 🔐 Security Notes
   ✅ JWT authentication used for all admin/API requests
+  
   ❗ Plaintext passwords currently used in development; bcrypt to be added before deployment
+  
   🚫 Tokenized survey links are one-time-use and expire after submission
+  
   ✅ Survey links do not require login for accessibility by references
 
 ### 📄 Email Integration
   SMTP setup using nodemailer
+  
   Emails are sent using a clean HTML template that includes:
+  
   Employee name
+  
   Reference name
+  
   A direct link to the one-time survey
 
 
