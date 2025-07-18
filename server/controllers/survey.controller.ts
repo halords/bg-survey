@@ -37,7 +37,7 @@ export const createSurvey = async (req: Request, res: Response) => {
     const newReferences = [];
     for (const ref of references) {
       const token = uuidv4();
-      const link = `http://localhost:5173/survey/${token}`;
+      const link = `https://bg-survey-yv9o.vercel.app/survey/${token}`;
       // console.log(link);
 
       const [refinsert] = await db.execute(
